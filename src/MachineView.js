@@ -62,7 +62,7 @@ export default class MachineView extends React.Component {
                         
                     </Grid>
                     
-                    <Grid container spacing={16} alignItems={"stretch"} justify={"space-evenly"}>
+                    <Grid container spacing={16} alignItems={"stretch"} justify={"flex-start"}>
                             {
                                 Object.keys(data.machines).map(function(entry){
                                     const machine = data.machines[entry];
