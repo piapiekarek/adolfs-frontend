@@ -1,6 +1,6 @@
 import React from 'react';
 import {AppBar, Toolbar, Typography, Hidden, IconButton, List, Drawer} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import Icon from '@material-ui/core/Icon';
 import HeaderListItem from "./HeaderListItem";
 import HeaderToolbarButton from "./HeaderToolbarButton";
 
@@ -19,31 +19,7 @@ export default class Header extends React.Component {
 
     render() {
         // in order to add new menu items add them to header Items
-        const header={
-            title: "Maschinen und Werkzeugwand",
-            headerItems:[
-                {
-                    "name": "string1",
-                    "link": "string1",
-                    "icon": "string1",
-                },
-                {
-                    "name": "string2",
-                    "link": "string2",
-                    "icon": "string2",
-                },
-                {
-                    "name": "string3",
-                    "link": "string3",
-                    "icon": "string3",
-                },
-                {
-                    "name": "string4",
-                    "link": "string4",
-                    "icon": "string4",
-                },
-            ]
-        };
+        const {header} = this.props;
 
         return (
             <AppBar position="static" color="default">
@@ -56,12 +32,13 @@ export default class Header extends React.Component {
                     <Hidden xsDown>
                         {
                             Object.keys(header.headerItems).map(function (entry) {
-                                const item = header.headerItems(entry);
-                                if ("name" in item) {
+                                const item = header.headerItems[entry];
+                                if (("name" in item) && (true === item.visible)){
                                     return (
-                                        <HeaderToolbarButton link={item.link} name={item.name}/>
+                                        <HeaderToolbarButton key={item.link + "1"} link={item.link} name={item.name}/>
                                     )
                                 }
+                                return(null)
                             }, this)
                         }
                     </Hidden>
@@ -74,7 +51,10 @@ export default class Header extends React.Component {
                             color="inherit"
                             aria-label="Open drawer"
                             onClick={this.toggleDrawer('left', true)}>
-                            <MenuIcon/>
+                            <Icon>
+                                menu
+                            </Icon>
+                            {/*<MenuIcon/>*/}
                         </IconButton>
 
                         {/*Drawer that is visible if button is pressed*/}
@@ -88,12 +68,13 @@ export default class Header extends React.Component {
                                 <List>
                                     {
                                         Object.keys(header.headerItems).map(function (entry) {
-                                            const item = header.headerItems(entry);
+                                            const item = header.headerItems[entry];
                                             if ("name" in item) {
                                                 return (
-                                                    <HeaderListItem link={item.link} name={item.name} icon={item.icon}/>
+                                                    <HeaderListItem key={item.link + "2"} link={item.link} name={item.name} icon={item.icon}/>
                                                 )
                                             }
+                                            return(null)
                                         }, this)
                                     }
                                 </List>

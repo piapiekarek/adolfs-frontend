@@ -1,33 +1,45 @@
 import React from 'react';
-import Header from "./header/Header";
 import { Route } from 'react-router-dom';
-import { Grid } from '@material-ui/core';
+import {Grid, Typography} from '@material-ui/core';
 
-export default class PageLayout extends React.Component {
+export default class RouterSwitchCase extends React.Component {
     render() {
-        const {header, data} = this.props;
-        const LayoutItem = header[layoutName];
+        const {data, layoutName, link, module_title} = this.props;
+        const LayoutName = layoutName;
 
-
-
-        return (
-            <Route exact path={link} render={(props) =>
+        /*          <Route exact
+                   path={"/" + link} render={(props) =>
                 <React.Fragment>
-                    <Header header={header.headerItems} />
                     <Grid item xs={12}>
-                        {
-                            Object.keys(header.headerItems).map(function (entry) {
-                                const item = header.headerItems(entry);
-                                if ("layoutItem" in item) {
-                                    return (
-                                        <LayoutItem data={data}/>
-                                    )
-                                }
-                            }, this)
-                        }
+                        asdfg{link}
+                        <LayoutName data={data} />
                     </Grid>
+
                 </React.Fragment>
-            } />
+            } />*/
+        return (
+
+            <Route exact
+                   path={"/" + link}
+                   key={link + "5"}
+                   render={(props)=>
+
+                       <Grid item xs={12}>
+                           {
+                               module_title ? (
+                                   <Typography variant="h5" gutterBottom>
+                                       <br/>
+                                       {module_title}
+                                       <br/>
+                                   </Typography>
+                               ):(<div> </div>)
+                           }
+                           asdfg{link}
+                           <LayoutName data={data} />
+                       </Grid>
+                   }
+            />
+
         );
 
     }

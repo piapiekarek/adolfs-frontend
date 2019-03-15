@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Grid, Paper, Typography } from '@material-ui/core';
-import './css/machines.css';
+import '../../css/machines.css';
 
 export default class MachineView extends React.Component {
     
@@ -31,7 +31,7 @@ export default class MachineView extends React.Component {
                         <Typography variant="body2" gutterBottom>
                             {machine_state}
                         </Typography>
-                        <div className={"circle " + ClassName}></div>
+                        <div className={"circle " + ClassName}> </div>
                     </div>
                        
                 </Paper>
