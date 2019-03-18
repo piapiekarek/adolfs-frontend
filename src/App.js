@@ -148,7 +148,6 @@ export default class App extends Component {
                                                                </Typography>
                                                            ):(<div> </div>)
                                                        }
-                                                       asdfg  {item.link}
                                                        <ComponentName data={data} />
                                                    </Grid>
                                                }
