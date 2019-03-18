@@ -153,13 +153,6 @@ export default class App extends Component {
                                                    </Grid>
                                                }
                                             />
-                                        /*<RouterSwitchCase
-                                            key={item.link}
-                                            layoutName={item.componentName}
-                                            link={item.link}
-                                            data={data}
-                                            module_title={item.name}
-                                        />*/
                                     )
                                 }
                                 return (null)
