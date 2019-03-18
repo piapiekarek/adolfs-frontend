@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
 import Header from "./page/header/Header";
-import {Grid} from "@material-ui/core";
+import {Grid, Typography} from "@material-ui/core";
 import MachineView from './page/machines/MachineView';
 import UsersOverView from './page/users/UsersOverView';
-import RouterSwitchCase from './page/RouterSwitchCase';
 import UserEditor from './page/users/UserForm';
 
 export default class App extends Component {
@@ -15,24 +14,24 @@ export default class App extends Component {
             headerItems:[
                 {
                     name: "Benutzer bearbeiten",
-                    link: "userform",
+                    link: "/userform",
                     icon: "add_circle",
                     visible: false,
-                    layoutName: UserEditor,
+                    componentName: UserEditor,
                 },
                 {
                 name: "Benutzerübersicht",
-                link: "users",
+                link: "/users",
                 icon: "add_circle",
                 visible: true,
-                layoutName: UsersOverView,
+                componentName: UsersOverView,
                 },
                 {
                     name: "Maschinenübersicht",
-                    link: "machineview",
+                    link: "/machineview",
                     icon: "add_circle",
                     visible: true,
-                    layoutName: MachineView,
+                    componentName: MachineView,
                 },
             ]
         };
@@ -132,16 +131,35 @@ export default class App extends Component {
                             Object.keys(header.headerItems).map(function (entry) {
                                 const item = header.headerItems[entry];
 
-                                if ("layoutName" in item) {
-                                    console.log("link: " + item.link + " layoutName: " + item.layoutName);
+                                if ("componentName" in item) {
+                                    const ComponentName = item.componentName;
                                     return (
-                                        <RouterSwitchCase
+                                        <Route exact
+                                               path={item.link}
+                                               key={item.link + "5"}
+                                               render={ (props)=>
+                                                   <Grid item xs={12}>
+                                                       {
+                                                           item.name ? (
+                                                               <Typography variant="h5" gutterBottom>
+                                                                   <br/>
+                                                                   {item.name}
+                                                                   <br/>
+                                                               </Typography>
+                                                           ):(<div> </div>)
+                                                       }
+                                                       asdfg  {item.link}
+                                                       <ComponentName data={data} />
+                                                   </Grid>
+                                               }
+                                            />
+                                        /*<RouterSwitchCase
                                             key={item.link}
-                                            layoutName={item.layoutName}
+                                            layoutName={item.componentName}
                                             link={item.link}
                                             data={data}
                                             module_title={item.name}
-                                        />
+                                        />*/
                                     )
                                 }
                                 return (null)

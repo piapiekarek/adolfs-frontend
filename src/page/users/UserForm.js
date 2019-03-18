@@ -7,7 +7,7 @@ export default class UserView extends React.Component {
     };
 
     render() {
-        const {first_name, last_name, email, password, role, module_title} = this.props;
+        const {first_name, last_name, email, password, role} = this.props;
 
 
         return (
@@ -47,14 +47,14 @@ export default class UserView extends React.Component {
                     /><br/>
                     <FormControl>
                         <InputLabel htmlFor="role-selection">Rolle</InputLabel>
-                        <Select
-                            value={role}
-                            onChange={this.handleChange}
-                            inputProps={{
-                                name: 'role',
-                                id: 'role-selection',
-                            }}
-                        >
+                            <Select
+                                value={role}
+                                onChange={this.handleChange}
+                                inputProps={{
+                                    name: 'role',
+                                    id: 'role-selection',
+                                }}
+                            >
                             <MenuItem value={"supervisor"}>Supervisor</MenuItem>
                             <MenuItem value={"administrator"}>Administrator</MenuItem>
                         </Select>
