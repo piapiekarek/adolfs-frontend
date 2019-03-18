@@ -1,12 +1,11 @@
 import React from 'react';
 import { TableCell, TableRow } from '@material-ui/core';
-
-import Icon from '@material-ui/core/Icon';
+import Edit from '@material-ui/icons/Edit'
 
 export default class UserView extends React.Component {
     render() {
         const {user_firstname, user_lastname, user_email, user_role, user_id} = this.props;
- 
+
         return (
      
             <TableRow>
@@ -26,9 +25,7 @@ export default class UserView extends React.Component {
                     {user_id}
                 </TableCell>
                 <TableCell>
-                    <Icon color="primary">
-                    add_circle
-                    </Icon>
+                    <Edit>star</Edit>
                 </TableCell>
             </TableRow>
         );
