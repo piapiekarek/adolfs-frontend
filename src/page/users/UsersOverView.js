@@ -47,8 +47,8 @@ export default class UsersOverView extends React.Component {
                                         return (
                                             <UserTableRow
                                                 key={user.id}
-                                                user_firstname={user.firstname}
-                                                user_lastname={user.lastname}
+                                                user_firstname={user.first_name}
+                                                user_lastname={user.last_name}
                                                 user_email={user.email}
                                                 user_role={user.role}
                                                 user_id={user.id}

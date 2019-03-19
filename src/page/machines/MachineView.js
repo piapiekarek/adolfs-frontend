@@ -11,14 +11,6 @@ export default class MachineView extends React.Component {
             return (
                 <div style={{ padding: 20 }}>
                     <Grid container spacing={40}>
-                        <Grid item xl={12}>
-                            <Typography variant="body2" gutterBottom>
-                                Das hier ist die Maschinenansicht <br/>
-                                Hier ist die Liste <br/>
-                            </Typography>
-
-                        </Grid>
-
                         <Grid container
                               spacing={16}
                               alignItems={"stretch"}

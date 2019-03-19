@@ -6,10 +6,12 @@ import {Grid, Typography} from "@material-ui/core";
 import MachineView from './page/machines/MachineView';
 import UsersOverView from './page/users/UsersOverView';
 import UserEditor from './page/users/UserForm';
+import testData from './testData.json';
 
 export default class App extends Component {
     render() {
-        const header={
+        const data = testData;
+        const setPages={
             title: "Maschinen und Werkzeugwand",
             headerItems:[
                 {
@@ -33,103 +35,45 @@ export default class App extends Component {
                     visible: true,
                     componentName: MachineView,
                 },
-            ]
-        };
-        const data = {
-            machines : [
-                {
-                    name: "test1",
-                    state: "on",
-                    id: "asdf1"
-                },
-                {
-                    name: "test2",
-                    state: "on",
-                    id: "asdf2"
-                },
-                {
-                    name: "test3",
-                    state: "off",
-                    id: "asdf3"
-                },
-                {
-                    name: "test4",
-                    state: "on",
-                    id: "asdf4"
-                },
-                {
-                    name: "test5",
-                    state: "on",
-                    id: "asdf5"
-                },
-                {
-                    name: "test6",
-                    state: "on",
-                    id: "asdf6"
-                },
-                {
-                    name: "test7",
-                    state: "off",
-                    id: "asdf7"
-                },
-                {
-                    name: "test8",
-                    state: "on",
-                    id: "asdf8"
-                },
             ],
-            users: [
+            rootPage:
                 {
-                    first_name: "test1",
-                    last_name: "test1",
-                    email: "test@test.de",
-                    id: "test1",
-                    password: "test1",
-                    role: "supervisor",
+                    name: "Maschinenübersicht",
+                    link: "/",
+                    icon: "add_circle",
+                    visible: true,
+                    componentName: MachineView,
                 },
-                {
-                    firstname: "test2",
-                    lastname: "test2",
-                    email: "test@test.de",
-                    id: "test2",
-                    password: "test2",
-                    role: "admin",
-                },
-                {
-                    firstname: "test3",
-                    lastname: "test3",
-                    email: "test@test.de",
-                    id: "test3",
-                    password: "test3",
-                    role: "supervisor",
-                },
-                {
-                    firstname: "test4",
-                    lastname: "test4",
-                    email: "test@test.de",
-                    id: "test4",
-                    password: "test4",
-                    role: "supervisor",
-                }
-            ],
+
         };
+
+        const RootPage = setPages.rootPage.componentName;
         return (
             <div className="App">
                 <Grid container>
-                    <Header header={header}/>
+                    <Header header={setPages}/>
                     <Switch>
                         {/*Add default page to router*/}
-                        <Route exact path={"/"} render={(props) =>
+                        <Route exact path={setPages.rootPage.link} render={(props) =>
                             <React.Fragment>
                                 <Grid item xs={12}>
-                                    <MachineView data={data}/>
+                                    {
+                                        setPages.rootPage.name ? (
+                                            <Typography variant="h5" gutterBottom>
+                                                <br/>
+                                                {setPages.rootPage.name}
+                                                <br/>
+                                            </Typography>
+                                        ):(<div> </div>)
+                                    }
+                                    <RootPage data={data}/>
                                 </Grid>
                             </React.Fragment>
                         }/>
 
                         {
-                            Object.keys(header.headerItems).map(function (entry) {
-                                const item = header.headerItems[entry];
+                            Object.keys(setPages.headerItems).map(function (entry) {
+                                const item = setPages.headerItems[entry];
 
                                 if ("componentName" in item) {
                                     const ComponentName = item.componentName;
