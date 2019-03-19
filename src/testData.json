@@ -7,7 +7,7 @@
     },
     {
       "name" : "test_machine_2",
-      "state" : "on",
+      "state" : "off",
       "id" : "asdf2"
     },
     {

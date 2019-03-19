@@ -33,7 +33,7 @@ export default class Header extends React.Component {
                         {
                             Object.keys(header.headerItems).map(function (entry) {
                                 const item = header.headerItems[entry];
-                                if (("name" in item) && (true === item.visible)){
+                                if (("name" in item) && (true === item.visibleInToolbar)){
                                     return (
                                         <HeaderToolbarButton key={item.link + "1"} link={item.link} name={item.name}/>
                                     )
