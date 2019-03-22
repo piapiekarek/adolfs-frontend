@@ -5,7 +5,7 @@ import TableRow from "@material-ui/core/es/TableRow/TableRow";
 
 export default class UsersOverView extends React.Component {
     render() {
-        const {data} = this.props;
+        const {data, setPages} = this.props;
         const tableHeading = {
             firstname: "Vorname",
             lastname: "Nachname",
@@ -37,6 +37,9 @@ export default class UsersOverView extends React.Component {
                                     <TableCell>
                                         {tableHeading.id}
                                     </TableCell>
+                                    <TableCell>
+
+                                    </TableCell>
                                 </TableRow>
                             </TableHead>
 
@@ -52,6 +55,8 @@ export default class UsersOverView extends React.Component {
                                                 user_email={user.email}
                                                 user_role={user.role}
                                                 user_id={user.id}
+                                                setPages={setPages}
+                                                data={data}
                                             />
                                         )
                                     }, this)

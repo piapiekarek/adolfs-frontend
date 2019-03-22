@@ -13,33 +13,36 @@ export default class App extends Component {
         const data = testData;
         const setPages={
             title: "Maschinen und Werkzeugwand",
-            headerItems:[
+            pageItems:[
                 {
-                name: "Benutzer bearbeiten",
-                link: "/userform",
-                icon: "add_circle",
+                displayName: "Benutzer bearbeiten",
+                identificationName : "editSpecificUser",
+                pageLink: "/userform",
+                iconName: "add_circle",
                 visibleInToolbar: false,
                 componentName: UserEditor,
                 },
                 {
-                name: "Benutzerübersicht",
-                link: "/users",
-                icon: "add_circle",
+                displayName: "Benutzerübersicht",
+                identificationName : "showAllUsers",
+                pageLink: "/users",
+                iconName: "add_circle",
                 visibleInToolbar: true,
                 componentName: UsersOverView,
                 },
                 {
-                name: "Maschinenübersicht",
-                link: "/machineview",
-                icon: "add_circle",
+                displayName: "Maschinenübersicht",
+                identificationName : "viewAllMachinesAndTools",
+                pageLink: "/machineview",
+                iconName: "add_circle",
                 visibleInToolbar: true,
                 componentName: MachineView,
                 },
             ],
             rootPage:
                 {
-                    name: "Maschinenübersicht",
-                    link: "/",
+                    displayName: "Maschinenübersicht",
+                    pageLink: "/",
                     componentName: MachineView,
                 },
 
@@ -52,14 +55,14 @@ export default class App extends Component {
                     <Header header={setPages}/>
                     <Switch>
                         {/*Add default page to router*/}
-                        <Route exact path={setPages.rootPage.link} render={(props) =>
+                        <Route exact path={setPages.rootPage.pageLink} render={(props) =>
                             <React.Fragment>
                                 <Grid item xs={12}>
                                     {
-                                        setPages.rootPage.name ? (
+                                        setPages.rootPage.displayName ? (
                                             <Typography variant="h5" gutterBottom>
                                                 <br/>
-                                                {setPages.rootPage.name}
+                                                {setPages.rootPage.displayName}
                                                 <br/>
                                             </Typography>
                                         ):(<div> </div>)
@@ -70,27 +73,27 @@ export default class App extends Component {
                         }/>
 
                         {
-                            Object.keys(setPages.headerItems).map(function (entry) {
-                                const item = setPages.headerItems[entry];
+                            Object.keys(setPages.pageItems).map(function (entry) {
+                                const item = setPages.pageItems[entry];
 
                                 if ("componentName" in item) {
                                     const ComponentName = item.componentName;
                                     return (
                                         <Route exact
-                                               path={item.link}
-                                               key={item.link + "5"}
+                                               path={item.pageLink}
+                                               key={item.pageLink + "5"}
                                                render={ (props)=>
                                                    <Grid item xs={12}>
                                                        {
-                                                           item.name ? (
+                                                           item.displayName ? (
                                                                <Typography variant="h5" gutterBottom>
                                                                    <br/>
-                                                                   {item.name}
+                                                                   {item.displayName}
                                                                    <br/>
                                                                </Typography>
                                                            ):(<div> </div>)
                                                        }
-                                                       <ComponentName data={data} />
+                                                       <ComponentName data={data} setPages={setPages}/>
                                                    </Grid>
                                                }
                                             />

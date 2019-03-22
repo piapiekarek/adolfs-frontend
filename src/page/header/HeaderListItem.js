@@ -6,7 +6,7 @@ export default class HeaderListItem extends React.Component {
 
 
     render() {
-        const {link, name, icon} = this.props;
+        const {link, displayName, icon} = this.props;
         return(
             <ListItem component="a" button href={link}>
                 <ListItemIcon>
@@ -14,7 +14,7 @@ export default class HeaderListItem extends React.Component {
                         {icon}
                     </Icon>
                 </ListItemIcon>
-                <ListItemText primary={name} />
+                <ListItemText primary={displayName} />
             </ListItem>
         )
     }

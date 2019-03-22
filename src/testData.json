@@ -1,42 +1,42 @@
 {
   "machines" : [
     {
-      "name" : "test_machine_1",
+      "displayName": "test_machine_1",
       "state" : "on",
       "id" : "asdf1"
     },
     {
-      "name" : "test_machine_2",
+      "name": "test_machine_2",
       "state" : "off",
       "id" : "asdf2"
     },
     {
-      "name" : "test_machine_3",
+      "name": "test_machine_3",
       "state" : "off",
       "id" : "asdf3"
     },
     {
-      "name" : "test_machine_4",
+      "name": "test_machine_4",
       "state" : "on",
       "id" : "asdf4"
     },
     {
-      "name" : "test_machine_5",
+      "name": "test_machine_5",
       "state" : "on",
       "id" : "asdf5"
     },
     {
-      "name" : "test_machine_6",
+      "name": "test_machine_6",
       "state" : "on",
       "id" : "asdf6"
     },
     {
-      "name" : "test_machine_7",
+      "name": "test_machine_7",
       "state" : "off",
       "id" : "asdf7"
     },
     {
-      "name" : "test_machine_8",
+      "name": "test_machine_8",
       "state" : "on",
       "id" : "asdf8"
     }
@@ -71,40 +71,38 @@
       "role" : "supervisor"
     }
   ],
-  "user?test_user_id_1":
-  {
-    "first_name" : "test_first_name_1",
-    "last_name" : "test_last_name_1",
-    "email" : "test_email_1@test.de",
-    "id" : "test_user_id_1",
-    "password" : "test_password_1",
-    "role" : "supervisor"
-  },
-  "user?test_user_id_2":
-  {
-    "first_name" : "test_first_name_2",
-    "last_name" : "test_last_name_2",
-    "email" : "test_email_2@test.de",
-    "id" : "test_user_id_2",
-    "password" : "test_password_2",
-    "role" : "admin"
-  },
-  "user?test_user_id_3":
-  {
-    "first_name" : "test_first_name_3",
-    "last_name" : "test_last_name_3",
-    "email" : "test_email_3@test.de",
-    "id" : "test_user_id_3",
-    "password" : "test_password_3",
-    "role" : "supervisor"
-  },
-  "user?test_user_id_4":
-  {
-    "first_name" : "test_first_name_4",
-    "last_name" : "test_last_name_4",
-    "email" : "test_email_4@test.de",
-    "id" : "test_user_id_4",
-    "password" : "test_password_4",
-    "role" : "supervisor"
+  "specificUserData": {
+    "user?test_user_id_1": {
+      "first_name": "test_first_name_1",
+      "last_name": "test_last_name_1",
+      "email": "test_email_1@test.de",
+      "id": "test_user_id_1",
+      "password": "test_password_1",
+      "role": "supervisor"
+    },
+    "user?test_user_id_2": {
+      "first_name": "test_first_name_2",
+      "last_name": "test_last_name_2",
+      "email": "test_email_2@test.de",
+      "id": "test_user_id_2",
+      "password": "test_password_2",
+      "role": "admin"
+    },
+    "user?test_user_id_3": {
+      "first_name": "test_first_name_3",
+      "last_name": "test_last_name_3",
+      "email": "test_email_3@test.de",
+      "id": "test_user_id_3",
+      "password": "test_password_3",
+      "role": "supervisor"
+    },
+    "user?test_user_id_4": {
+      "first_name": "test_first_name_4",
+      "last_name": "test_last_name_4",
+      "email": "test_email_4@test.de",
+      "id": "test_user_id_4",
+      "password": "test_password_4",
+      "role": "supervisor"
+    }
   }
 }

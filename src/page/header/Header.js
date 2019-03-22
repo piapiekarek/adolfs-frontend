@@ -31,11 +31,11 @@ export default class Header extends React.Component {
                     {/*visible only for Devices bigger than a smartphone*/}
                     <Hidden xsDown>
                         {
-                            Object.keys(header.headerItems).map(function (entry) {
-                                const item = header.headerItems[entry];
-                                if (("name" in item) && (true === item.visibleInToolbar)){
+                            Object.keys(header.pageItems).map(function (entry) {
+                                const item = header.pageItems[entry];
+                                if (("displayName" in item) && (true === item.visibleInToolbar)){
                                     return (
-                                        <HeaderToolbarButton key={item.link + "1"} link={item.link} name={item.name}/>
+                                        <HeaderToolbarButton key={item.pageLink + "1"} link={item.pageLink} displayName={item.displayName}/>
                                     )
                                 }
                                 return(null)
@@ -67,11 +67,11 @@ export default class Header extends React.Component {
                             >
                                 <List>
                                     {
-                                        Object.keys(header.headerItems).map(function (entry) {
-                                            const item = header.headerItems[entry];
+                                        Object.keys(header.pageItems).map(function (entry) {
+                                            const item = header.pageItems[entry];
                                             if ("name" in item) {
                                                 return (
-                                                    <HeaderListItem key={item.link + "2"} link={item.link} name={item.name} icon={item.icon}/>
+                                                    <HeaderListItem key={item.pageLink + "2"} link={item.pageLink} displayName={item.displayName} icon={item.iconName}/>
                                                 )
                                             }
                                             return(null)

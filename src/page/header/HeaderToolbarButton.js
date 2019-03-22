@@ -6,10 +6,10 @@ export default class Header extends React.Component {
 
 
     render() {
-        const {link, name} = this.props;
+        const {link, displayName} = this.props;
         return(
             <Button color="primary" href={link}>
-                {name}
+                {displayName}
             </Button>
         )
     }
