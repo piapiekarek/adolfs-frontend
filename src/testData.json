@@ -1,44 +1,44 @@
 {
   "machines" : [
     {
-      "displayName": "test_machine_1",
+      "name": "test_machine_1",
       "state" : "on",
-      "id" : "asdf1"
+      "id" : "test_machine_id_1"
     },
     {
       "name": "test_machine_2",
       "state" : "off",
-      "id" : "asdf2"
+      "id" : "test_machine_id_2"
     },
     {
       "name": "test_machine_3",
       "state" : "off",
-      "id" : "asdf3"
+      "id" : "test_machine_id_3"
     },
     {
       "name": "test_machine_4",
       "state" : "on",
-      "id" : "asdf4"
+      "id" : "test_machine_id_4"
     },
     {
       "name": "test_machine_5",
       "state" : "on",
-      "id" : "asdf5"
+      "id" : "test_machine_id_5"
     },
     {
       "name": "test_machine_6",
       "state" : "on",
-      "id" : "asdf6"
+      "id" : "test_machine_id_6"
     },
     {
       "name": "test_machine_7",
       "state" : "off",
-      "id" : "asdf7"
+      "id" : "test_machine_id_7"
     },
     {
       "name": "test_machine_8",
       "state" : "on",
-      "id" : "asdf8"
+      "id" : "test_machine_id_8"
     }
   ],
   "users" : [
@@ -69,6 +69,101 @@
       "email" : "test_email_4@test.de",
       "id" : "test_user_id_4",
       "role" : "supervisor"
+    }
+  ],
+  "cardreaders" : [
+    {
+      "name": "test_cardreader_1",
+      "id" : "test_cardreader_id_1",
+      "role" : "infrastructure",
+      "interval" : 1000
+    },
+    {
+      "name": "test_cardreader_2",
+      "id" : "test_cardreader_id_2",
+      "role" : "infrastructure",
+      "interval" : 1000
+    },
+    {
+      "name": "test_cardreader_3",
+      "id" : "test_cardreader_id_3",
+      "role" : "infrastructure",
+      "interval" : 1000
+    },
+    {
+      "name": "test_cardreader_4",
+      "id" : "test_cardreader_id_4",
+      "role" : "infrastructure",
+      "interval" : 1000
+    },
+    {
+      "name": "test_cardreader_5",
+      "id" : "test_cardreader_id_5",
+      "role" : "infrastructure",
+      "interval" : 1000
+    },
+    {
+      "name": "test_cardreader_6",
+      "id" : "test_cardreader_id_6",
+      "role" : "infrastructure",
+      "interval" : 1000
+    },
+    {
+      "name": "test_cardreader_7",
+      "id" : "test_cardreader_id_7",
+      "role" : "infrastructure",
+      "interval" : 1000
+    },
+    {
+      "name": "test_cardreader_8",
+      "id" : "test_cardreader_id_8",
+      "role" : "infrastructure",
+      "interval" : 1000
+    }
+  ],
+  "smartswitches" : [
+    {
+      "name": "test_smartswitch_1",
+      "cardreader_id" : [
+        "test_smartswitch_id_1",
+        "test_smartswitch_id_2" 
+      ],
+      "id" : "test_cardreader_1"
+    },
+    {
+      "name": "test_smartswitch_2",
+      "cardreader_id" : ["test_cardreader_2"],
+      "id" : "test_smartswitch_id_2"
+    },
+    {
+      "name": "test_smartswitch_3",
+      "cardreader_id" : ["test_cardreader_3"],
+      "id" : "test_smartswitch_id_3"
+    },
+    {
+      "name": "test_smartswitch_4",
+      "cardreader_id" : ["test_cardreader_4"],
+      "id" : "test_smartswitch_id_4"
+    },
+    {
+      "name": "test_smartswitch_5",
+      "cardreader_id" : ["test_cardreader_5"],
+      "id" : "test_smartswitch_id_5"
+    },
+    {
+      "name": "test_smartswitch_6",
+      "cardreader_id" : ["test_cardreader_6"],
+      "id" : "test_smartswitch_id_6"
+    },
+    {
+      "name": "test_smartswitch_7",
+      "cardreader_id" : ["test_cardreader_7"],
+      "id" : "test_smartswitch_id_7"
+    },
+    {
+      "name": "test_smartswitch_8",
+      "cardreader_id" : ["test_cardreader_8"],
+      "id" : "test_smartswitch_id_8"
     }
   ],
   "specificUserData": {
