@@ -3,23 +3,25 @@ import { TableCell, TableRow, Button } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom';
 
-export default class UserView extends React.Component {
+export default class UsersOverViewTableRow extends React.Component {
     render() {
-        const {user_firstname, user_lastname, user_email, user_role, user_id, setPages} = this.props;
+        const {user_firstname, user_lastname, user_email, user_role, user_id, settingsForSubpages} = this.props;
 
         let LinkToEditUser = null;
 
-        if(setPages){
+        if(settingsForSubpages){
 
             let URIToEditPage = null;
 
-            Object.keys(setPages.pageItems).forEach(entry=>{
-                if("editSpecificUser" === setPages.pageItems[entry].identificationName){
-                    URIToEditPage = setPages.pageItems[entry].pageLink;
+            Object.keys(settingsForSubpages.pageItems).forEach(entry=>{
+                //get name from settings definition in App.js
+                if("editSpecificUser" === settingsForSubpages.pageItems[entry].identificationName){
+                    URIToEditPage = settingsForSubpages.pageItems[entry].pageLink;
                 }
             });
 
             if(URIToEditPage){
+                console.log(URIToEditPage);
                 LinkToEditUser = props => <Link to={{pathname: URIToEditPage+ "/:"+user_id, state: { user_id: user_id} }}  {...props} />
             }
 

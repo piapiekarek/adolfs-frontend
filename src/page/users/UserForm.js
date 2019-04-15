@@ -13,7 +13,7 @@ export default class UserView extends React.Component {
         //const {id} = props.match.params;
 
         //console.log(id);
-
+        console.log(user_id);
         console.log("Test: " + JSON.stringify(this.props, null, '\t'));
         const namevar = user_id;
         if(true){

@@ -1,18 +1,15 @@
 import React from 'react';
 import { Grid, Typography, Table, TableBody, TableCell, TableHead } from '@material-ui/core';
-import UsersOverViewTableRow from './UsersOverViewTableRow';
+import SmartSwitchOverViewTableRow from './SmartSwitchOverViewTableRow';
 import TableRow from "@material-ui/core/es/TableRow/TableRow";
 
-export default class UsersOverView extends React.Component {
+export default class SmartSwitchOverView extends React.Component {
     render() {
         const {data, settingsForSubpages} = this.props;
         const tableHeading = {
-            firstname: "Vorname",
-            lastname: "Nachname",
-            email: "Email-Adresse",
+            name: "Name",
             id: "ID",
-            password: "Passwort",
-            role: "Rolle",            
+            cardreader_id: "Verbundene Card Reader",
         };
 
         if(data) {
@@ -23,19 +20,13 @@ export default class UsersOverView extends React.Component {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>
-                                        {tableHeading.firstname}
-                                    </TableCell>
-                                    <TableCell>
-                                        {tableHeading.lastname}
-                                    </TableCell>
-                                    <TableCell>
-                                        {tableHeading.email}
-                                    </TableCell>
-                                    <TableCell>
-                                        {tableHeading.role}
+                                        {tableHeading.name}
                                     </TableCell>
                                     <TableCell>
                                         {tableHeading.id}
+                                    </TableCell>
+                                    <TableCell>
+                                        {tableHeading.cardreader_id}
                                     </TableCell>
                                     <TableCell>
                                         Bearbeiten
@@ -45,16 +36,14 @@ export default class UsersOverView extends React.Component {
 
                             <TableBody>
                                 {
-                                    Object.keys(data.users).map(function (entry) {
-                                        const user = data.users[entry];
+                                    Object.keys(data.smartswitches).map(function (entry) {
+                                        const smartswitch = data.smartswitches[entry];
                                         return (
-                                            <UsersOverViewTableRow
-                                                key={user.id}
-                                                user_firstname={user.first_name}
-                                                user_lastname={user.last_name}
-                                                user_email={user.email}
-                                                user_role={user.role}
-                                                user_id={user.id}
+                                            <SmartSwitchOverViewTableRow
+                                                key={smartswitch.id}
+                                                smartswitch_name={smartswitch.name}
+                                                connected_cardreader_id={smartswitch.cardreader_id}
+                                                smartswitch_id={smartswitch.id}
                                                 settingsForSubpages={settingsForSubpages}
                                                 data={data}
                                             />
