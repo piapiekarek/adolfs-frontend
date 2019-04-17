@@ -3,12 +3,12 @@ import './App.css';
 import {Route, Switch} from 'react-router-dom';
 import Header from "./page/header/Header";
 import {Grid, Typography} from "@material-ui/core";
-import MachineView from './page/machines/MachineView';
-import UsersOverView from './page/users/UsersOverView';
+import MachineOverview from './page/machines/MachineOverview';
+import UsersOverview from './page/users/UsersOverview';
 import UserEditor from './page/users/UserForm';
 import testData from './testData.json';
-import SmartSwitchOverView from './page/smartswitch/SmartSwitchOverView';
-import CardReaderOverView from './page/cardreader/CardReaderOverView';
+import SmartSwitchOverview from './page/smartswitch/SmartSwitchOverview';
+import CardReaderOverview from './page/cardreader/CardReaderOverview';
 
 export default class App extends Component {
     render() {
@@ -25,43 +25,43 @@ export default class App extends Component {
                     componentName: UserEditor,
                 },
                 {
-                    displayName: "Benutzer Übersicht",
+                    displayName: "Benutzer",
                     identificationName : "showAllUsers",
                     pageLink: "/users",
                     iconName: "add_circle",
                     visibleInToolbar: true,
-                    componentName: UsersOverView,
+                    componentName: UsersOverview,
                 },
                 {
-                    displayName: "Maschinen Übersicht",
+                    displayName: "Maschinen",
                     identificationName : "viewAllMachinesAndTools",
                     pageLink: "/machineview",
                     iconName: "add_circle",
                     visibleInToolbar: true,
-                    componentName: MachineView,
+                    componentName: MachineOverview,
                 },
                 {
-                    displayName: "Smart-Switch Übersicht",
+                    displayName: "Smart-Switches",
                     identificationName : "viewAllSmartSwitches",
                     pageLink: "/smartswitches",
                     iconName: "add_circle",
                     visibleInToolbar: true,
-                    componentName: SmartSwitchOverView,
+                    componentName: SmartSwitchOverview,
                 },
                 {
-                    displayName: "Card-Reader Übersicht",
+                    displayName: "Card-Reader",
                     identificationName : "viewAllCardReaders",
                     pageLink: "/cardreaders",
                     iconName: "add_circle",
                     visibleInToolbar: true,
-                    componentName: CardReaderOverView,
+                    componentName: CardReaderOverview,
                 },
             ],
             rootPage:
                 {
-                    displayName: "Maschinenübersicht",
+                    displayName: "Maschinen",
                     pageLink: "/",
-                    componentName: MachineView,
+                    componentName: MachineOverview,
                 },
 
         };

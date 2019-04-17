@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Table, TableBody, TableCell, TableHead } from '@material-ui/core';
-import UsersOverViewTableRow from './UsersOverViewTableRow';
+import UsersOverViewTableRow from './users/UsersOverviewTableRow';
 import TableRow from "@material-ui/core/es/TableRow/TableRow";
 
 export default class UsersOverView extends React.Component {

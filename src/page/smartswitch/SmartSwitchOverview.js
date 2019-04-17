@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Table, TableBody, TableCell, TableHead } from '@material-ui/core';
-import SmartSwitchOverViewTableRow from './SmartSwitchOverViewTableRow';
+import SmartSwitchOverviewTableRow from './SmartSwitchOverviewTableRow';
 import TableRow from "@material-ui/core/es/TableRow/TableRow";
 
 export default class SmartSwitchOverView extends React.Component {
@@ -39,7 +39,7 @@ export default class SmartSwitchOverView extends React.Component {
                                     Object.keys(data.smartswitches).map(function (entry) {
                                         const smartswitch = data.smartswitches[entry];
                                         return (
-                                            <SmartSwitchOverViewTableRow
+                                            <SmartSwitchOverviewTableRow
                                                 key={smartswitch.id}
                                                 smartswitch_name={smartswitch.name}
                                                 connected_cardreader_id={smartswitch.cardreader_id}

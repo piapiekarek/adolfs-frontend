@@ -1,16 +1,18 @@
 import React from 'react';
 import { Grid, Typography, Table, TableBody, TableCell, TableHead } from '@material-ui/core';
+import UsersOverviewTableRow from './UsersOverviewTableRow';
 import TableRow from "@material-ui/core/es/TableRow/TableRow";
-import CardReaderOverViewTableRow from './CardReaderOverViewTableRow';
 
-export default class CardReaderOverView extends React.Component {
+export default class UsersOverview extends React.Component {
     render() {
         const {data, settingsForSubpages} = this.props;
         const tableHeading = {
-            name: "Name",
-            interval: "Aktivitätszeit",
-            role: "Rolle",
+            firstname: "Vorname",
+            lastname: "Nachname",
+            email: "Email-Adresse",
             id: "ID",
+            password: "Passwort",
+            role: "Rolle",            
         };
 
         if(data) {
@@ -21,10 +23,13 @@ export default class CardReaderOverView extends React.Component {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>
-                                        {tableHeading.name}
+                                        {tableHeading.firstname}
                                     </TableCell>
                                     <TableCell>
-                                        {tableHeading.interval}
+                                        {tableHeading.lastname}
+                                    </TableCell>
+                                    <TableCell>
+                                        {tableHeading.email}
                                     </TableCell>
                                     <TableCell>
                                         {tableHeading.role}
@@ -33,22 +38,23 @@ export default class CardReaderOverView extends React.Component {
                                         {tableHeading.id}
                                     </TableCell>
                                     <TableCell>
-
+                                        Bearbeiten
                                     </TableCell>
                                 </TableRow>
                             </TableHead>
 
                             <TableBody>
                                 {
-                                    Object.keys(data.cardreaders).map(function (entry) {
-                                        const cardreader = data.cardreaders[entry];
+                                    Object.keys(data.users).map(function (entry) {
+                                        const user = data.users[entry];
                                         return (
-                                            <CardReaderOverViewTableRow
-                                                key={cardreader.id}
-                                                cardreader_name={cardreader.name}
-                                                cardreader_role={cardreader.role}
-                                                cardreader_id={cardreader.id}
-                                                cardreader_interval={cardreader.interval}
+                                            <UsersOverviewTableRow
+                                                key={user.id}
+                                                user_firstname={user.first_name}
+                                                user_lastname={user.last_name}
+                                                user_email={user.email}
+                                                user_role={user.role}
+                                                user_id={user.id}
                                                 settingsForSubpages={settingsForSubpages}
                                                 data={data}
                                             />
