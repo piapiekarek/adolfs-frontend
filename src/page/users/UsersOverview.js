@@ -2,6 +2,8 @@ import React from 'react';
 import { Grid, Typography, Table, TableBody, TableCell, TableHead } from '@material-ui/core';
 import UsersOverviewTableRow from './UsersOverviewTableRow';
 import TableRow from "@material-ui/core/es/TableRow/TableRow";
+import {Button, Icon } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export default class UsersOverview extends React.Component {
     render() {
@@ -64,6 +66,17 @@ export default class UsersOverview extends React.Component {
 
                             </TableBody>
                         </Table>
+
+                        <div className={"button-add-new"}>
+                            <Link to={"/adduser"} className={"icon-link"}>
+                                <Button >
+                                    <Icon color="primary" fontSize="large">
+                                        add_circle
+                                    </Icon>
+                                </Button>
+                            </Link>
+                        </div>
+
                     </Typography>
                 </Grid>
 

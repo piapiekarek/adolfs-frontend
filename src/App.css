@@ -31,3 +31,13 @@
     transform: rotate(360deg);
   }
 }
+
+.button-add-new{
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+
+.icon-link {
+  text-decoration: none;
+}

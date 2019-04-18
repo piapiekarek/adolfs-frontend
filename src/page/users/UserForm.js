@@ -8,15 +8,18 @@ export default class UserView extends React.Component {
 
     render() {
         const {user_id} = this.props;
-        //const {user_id} = this.state;
-        //console.log(this.state.user_id);
-        //const {id} = props.match.params;
-
-        //console.log(id);
-        console.log(user_id);
-        console.log("Test: " + JSON.stringify(this.props, null, '\t'));
+        console.log("test");
+        console.log(this.state);
+       
         const namevar = user_id;
-        if(true){
+
+        let first_name; 
+        let last_name;
+        let email;
+        let password; 
+        let role;
+
+        if(!user_id){
             Object.keys(this.props.data.specificUserData).forEach(entry=>{
                 console.log(entry);
                 console.log(this.props.data.specificUserData[entry]);
@@ -25,9 +28,15 @@ export default class UserView extends React.Component {
                     console.log("treffer!!");
                 }
             })
+        } else {
+            first_name = "";
+            last_name = "";
+            email = "";
+            password = "";
+            role = "user";
         }
-        let simple_switch = false;
-        let first_name, last_name, email, password, role  ="hallo";
+        let simple_switch = true;
+
         if (simple_switch) {
             return (
                 <Paper style={{maxWidth: 650,}}>
@@ -70,6 +79,7 @@ export default class UserView extends React.Component {
                                     id: 'role-selection',
                                 }}
                             >
+                            <MenuItem value={"user"}>Anwender</MenuItem>
                                 <MenuItem value={"supervisor"}>Supervisor</MenuItem>
                                 <MenuItem value={"administrator"}>Administrator</MenuItem>
                             </Select>

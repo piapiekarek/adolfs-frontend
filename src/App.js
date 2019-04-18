@@ -5,6 +5,7 @@ import Header from "./page/header/Header";
 import {Grid, Typography} from "@material-ui/core";
 import MachineOverview from './page/machines/MachineOverview';
 import UsersOverview from './page/users/UsersOverview';
+import AddNewUser from './page/users/AddNewUser';
 import UserEditor from './page/users/UserForm';
 import testData from './testData.json';
 import SmartSwitchOverview from './page/smartswitch/SmartSwitchOverview';
@@ -23,6 +24,14 @@ export default class App extends Component {
                     iconName: "add_circle",
                     visibleInToolbar: false,
                     componentName: UserEditor,
+                },
+                {
+                    displayName: "Neuen Benutzer hinzufügen",
+                    identificationName : "addNewUser",
+                    pageLink: "/adduser",
+                    iconName: "add_circle",
+                    visibleInToolbar: false,
+                    componentName: AddNewUser,
                 },
                 {
                     displayName: "Benutzer",

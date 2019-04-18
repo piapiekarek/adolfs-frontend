@@ -20,9 +20,7 @@ export default class UsersOverViewTableRow extends React.Component {
             
 
         }
-        
-        console.log(LinkToEditUser);
-        console.log(URIToEditPage);
+
         return (
 
             <TableRow>
@@ -43,12 +41,21 @@ export default class UsersOverViewTableRow extends React.Component {
                 </TableCell>
                 <TableCell>
                     {URIToEditPage ?
-                        <Link to={{pathname: URIToEditPage+ "/:"+user_id, state: { user_id: user_id} }}>
-                            <Button to={LinkToEditUser}>
+                        <Link className={"icon-link"} to={URIToEditPage + "/:" + user_id
+                           /*  {
+                            pathname: URIToEditPage + "/:" + user_id, 
+                            state: { 
+                                user_id: user_id,
+                            },
+                          } */
+                          }>
+
+                            <Button>
                                 <Icon color="primary">
                                     add_circle
                                 </Icon>
                             </Button>
+
                         </Link>
                         :
                         ""
