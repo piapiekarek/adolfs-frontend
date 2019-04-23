@@ -1,15 +1,16 @@
 import React from 'react';
 import { Grid, Typography, Table, TableBody, TableCell, TableHead } from '@material-ui/core';
-import SmartSwitchOverviewTableRow from './SmartSwitchOverviewTableRow';
+import SmartSwitchOverviewTableRow from './OverviewTableRowSmartSwitch';
 import TableRow from "@material-ui/core/es/TableRow/TableRow";
 
-export default class SmartSwitchOverView extends React.Component {
+export default class OverViewSmartSwitch extends React.Component {
     render() {
         const {data, settingsForSubpages} = this.props;
         const tableHeading = {
             name: "Name",
             id: "ID",
             cardreader_id: "Verbundene Card Reader",
+            edit:"Bearbeiten"
         };
 
         if(data) {
@@ -29,7 +30,7 @@ export default class SmartSwitchOverView extends React.Component {
                                         {tableHeading.cardreader_id}
                                     </TableCell>
                                     <TableCell>
-                                        Bearbeiten
+                                        {tableHeading.edit}
                                     </TableCell>
                                 </TableRow>
                             </TableHead>

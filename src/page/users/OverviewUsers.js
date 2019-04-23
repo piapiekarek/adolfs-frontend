@@ -1,9 +1,11 @@
 import React from 'react';
-import { Grid, Typography, Table, TableBody, TableCell, TableHead } from '@material-ui/core';
-import UsersOverViewTableRow from './users/UsersOverviewTableRow';
+import { Grid, Typography, Table, TableBody, TableCell, TableHead, Tooltip } from '@material-ui/core';
+import UsersOverviewTableRow from './OverviewTableRowUsers';
 import TableRow from "@material-ui/core/es/TableRow/TableRow";
+import {Button, Icon } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
-export default class UsersOverView extends React.Component {
+export default class OverviewUsers extends React.Component {
     render() {
         const {data, settingsForSubpages} = this.props;
         const tableHeading = {
@@ -12,7 +14,8 @@ export default class UsersOverView extends React.Component {
             email: "Email-Adresse",
             id: "ID",
             password: "Passwort",
-            role: "Rolle",            
+            role: "Rolle",   
+            edit:"Bearbeiten",         
         };
 
         if(data) {
@@ -38,7 +41,7 @@ export default class UsersOverView extends React.Component {
                                         {tableHeading.id}
                                     </TableCell>
                                     <TableCell>
-                                        Bearbeiten
+                                        {tableHeading.edit}
                                     </TableCell>
                                 </TableRow>
                             </TableHead>
@@ -48,7 +51,7 @@ export default class UsersOverView extends React.Component {
                                     Object.keys(data.users).map(function (entry) {
                                         const user = data.users[entry];
                                         return (
-                                            <UsersOverViewTableRow
+                                            <UsersOverviewTableRow
                                                 key={user.id}
                                                 user_firstname={user.first_name}
                                                 user_lastname={user.last_name}
@@ -64,6 +67,18 @@ export default class UsersOverView extends React.Component {
 
                             </TableBody>
                         </Table>
+
+                        <div className={"button-add-new"}>
+                            <Tooltip title="Benutzer hinzufügen">
+                                <Link to={"/adduser"} className={"icon-link"}>
+                                    <Button >
+                                        <Icon color="primary" fontSize="large">
+                                            add_circle
+                                        </Icon>
+                                    </Button>
+                                </Link>
+                            </Tooltip>
+                        </div>
                     </Typography>
                 </Grid>
 

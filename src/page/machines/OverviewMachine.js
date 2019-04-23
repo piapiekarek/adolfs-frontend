@@ -4,12 +4,13 @@ import { Grid } from '@material-ui/core';
 import MachineItem from './MachineItem';
 import '../../css/machines.css';
 
-export default class MachineView extends React.Component {
+export default class OverviewMachine extends React.Component {
     render() {
         const {data} = this.props;
         if(undefined !== data){
             return (
                 <div style={{ padding: 20 }}>
+                
                     <Grid container spacing={40}>
                         <Grid container
                               spacing={16}

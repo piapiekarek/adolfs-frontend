@@ -3,9 +3,10 @@ import { TableCell, TableRow, Button } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom';
 
-export default class SmartSwitchOverViewTableRow extends React.Component {
+export default class CardReaderOverViewTableRow extends React.Component {
     render() {
-        const {smartswitch_name, smartswitch_id, connected_cardreader_id, settingsForSubpages} = this.props;
+        const {cardreader_name, cardreader_id, cardreader_interval, cardreader_role, settingsForSubpages} = this.props;
+
         let LinkToEditSmartSwitch = null;
 
         if(settingsForSubpages){
@@ -14,13 +15,13 @@ export default class SmartSwitchOverViewTableRow extends React.Component {
 
             Object.keys(settingsForSubpages.pageItems).forEach(entry=>{
                 //get link from settings definition in App.js
-                if("editSpecificSmartSwitch" === settingsForSubpages.pageItems[entry].identificationName){
+                if("editSpecificCardReader" === settingsForSubpages.pageItems[entry].identificationName){
                     URIToEditPage = settingsForSubpages.pageItems[entry].pageLink;
                 }
             });
 
             if(URIToEditPage){
-                LinkToEditSmartSwitch = props => <Link to={{pathname: URIToEditPage+ "/:"+smartswitch_id, state: { user_id: smartswitch_id} }}  {...props} />
+                LinkToEditSmartSwitch = props => <Link to={{pathname: URIToEditPage+ "?"+cardreader_id, state: { user_id: cardreader_id} }}  {...props} />
             }
 
         }
@@ -29,19 +30,22 @@ export default class SmartSwitchOverViewTableRow extends React.Component {
 
             <TableRow>
                 <TableCell>
-                    {smartswitch_name}
+                    {cardreader_name}
                 </TableCell>
                 <TableCell>
-                    {smartswitch_id}
+                    {cardreader_interval}
                 </TableCell>
                 <TableCell>
-                    {connected_cardreader_id.join(", ")}
+                    {cardreader_role}
+                </TableCell>
+                <TableCell>
+                    {cardreader_id}
                 </TableCell>
                 <TableCell>
                     {LinkToEditSmartSwitch ?
                         <Button component={LinkToEditSmartSwitch}>
                             <Icon color="primary">
-                                add_circle
+                                edit
                             </Icon>
                         </Button>
                         :

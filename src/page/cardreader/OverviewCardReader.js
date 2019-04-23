@@ -1,20 +1,17 @@
 import React from 'react';
 import { Grid, Typography, Table, TableBody, TableCell, TableHead } from '@material-ui/core';
-import UsersOverviewTableRow from './UsersOverviewTableRow';
 import TableRow from "@material-ui/core/es/TableRow/TableRow";
-import {Button, Icon } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import OverviewTableRowCardReader from './OverviewTableRowCardReader';
 
-export default class UsersOverview extends React.Component {
+export default class CardReaderOverview extends React.Component {
     render() {
         const {data, settingsForSubpages} = this.props;
         const tableHeading = {
-            firstname: "Vorname",
-            lastname: "Nachname",
-            email: "Email-Adresse",
+            name: "Name",
+            interval: "Aktivitätszeit",
+            role: "Rolle",
             id: "ID",
-            password: "Passwort",
-            role: "Rolle",            
+            edit:"Bearbeiten"
         };
 
         if(data) {
@@ -25,13 +22,10 @@ export default class UsersOverview extends React.Component {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>
-                                        {tableHeading.firstname}
+                                        {tableHeading.name}
                                     </TableCell>
                                     <TableCell>
-                                        {tableHeading.lastname}
-                                    </TableCell>
-                                    <TableCell>
-                                        {tableHeading.email}
+                                        {tableHeading.interval}
                                     </TableCell>
                                     <TableCell>
                                         {tableHeading.role}
@@ -40,23 +34,22 @@ export default class UsersOverview extends React.Component {
                                         {tableHeading.id}
                                     </TableCell>
                                     <TableCell>
-                                        Bearbeiten
+                                        {tableHeading.edit}
                                     </TableCell>
                                 </TableRow>
                             </TableHead>
 
                             <TableBody>
                                 {
-                                    Object.keys(data.users).map(function (entry) {
-                                        const user = data.users[entry];
+                                    Object.keys(data.cardreaders).map(function (entry) {
+                                        const cardreader = data.cardreaders[entry];
                                         return (
-                                            <UsersOverviewTableRow
-                                                key={user.id}
-                                                user_firstname={user.first_name}
-                                                user_lastname={user.last_name}
-                                                user_email={user.email}
-                                                user_role={user.role}
-                                                user_id={user.id}
+                                            <OverviewTableRowCardReader
+                                                key={cardreader.id}
+                                                cardreader_name={cardreader.name}
+                                                cardreader_role={cardreader.role}
+                                                cardreader_id={cardreader.id}
+                                                cardreader_interval={cardreader.interval}
                                                 settingsForSubpages={settingsForSubpages}
                                                 data={data}
                                             />
@@ -66,17 +59,6 @@ export default class UsersOverview extends React.Component {
 
                             </TableBody>
                         </Table>
-
-                        <div className={"button-add-new"}>
-                            <Link to={"/adduser"} className={"icon-link"}>
-                                <Button >
-                                    <Icon color="primary" fontSize="large">
-                                        add_circle
-                                    </Icon>
-                                </Button>
-                            </Link>
-                        </div>
-
                     </Typography>
                 </Grid>
 

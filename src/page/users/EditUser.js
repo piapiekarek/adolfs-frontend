@@ -1,25 +1,42 @@
 import React from 'react';
 import { TextField, Paper, InputLabel, Select, MenuItem, FormControl } from '@material-ui/core';
 
-export default class UserView extends React.Component {
-    handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    };
+const roles = [
+    {
+      value: 'user',
+      label: 'Anwender',
+    },
+    {
+      value: 'supervisor',
+      label: 'Supervisor',
+    },
+    {
+      value: 'administrator',
+      label: 'Administrator',
+    },  
+];
+
+export default class EditUser extends React.Component {
+    state={
+        first_name : "",
+        last_name : "", 
+        email : "",
+        password :"",
+        role : "user"
+       }
+
+    handleChange = name => event => {
+        this.setState({
+          [name]: event.target.value,
+        });
+      };
 
     render() {
         const {user_id} = this.props;
-        console.log("test");
-        console.log(this.state);
        
         const namevar = user_id;
 
-        let first_name; 
-        let last_name;
-        let email;
-        let password; 
-        let role;
-
-        if(!user_id){
+        /* if(!user_id){
             Object.keys(this.props.data.specificUserData).forEach(entry=>{
                 console.log(entry);
                 console.log(this.props.data.specificUserData[entry]);
@@ -29,12 +46,9 @@ export default class UserView extends React.Component {
                 }
             })
         } else {
-            first_name = "";
-            last_name = "";
-            email = "";
-            password = "";
-            role = "user";
-        }
+            
+        } */
+        
         let simple_switch = true;
 
         if (simple_switch) {
@@ -44,7 +58,7 @@ export default class UserView extends React.Component {
                         <TextField
                             id="first-name"
                             label="Vorname"
-                            value={first_name}
+                            value={this.state.first_name}
                             margin="normal"
                             style={{marginRight: 20}}
                             autoFocus
@@ -52,38 +66,38 @@ export default class UserView extends React.Component {
                         <TextField
                             id="last-name"
                             label="Nachname"
-                            value={last_name}
+                            value={this.state.last_name}
                             margin="normal"
                         /><br/>
                         <TextField
                             id="mail"
                             label="Email"
-                            value={email}
+                            value={this.state.email}
                             margin="normal"
                             style={{marginRight: 20}}
                         />
                         <TextField
                             id="password"
                             label="Passwort"
-                            value={password}
+                            value={this.state.password}
                             type="password"
                             margin="normal"
                         /><br/>
-                        <FormControl>
-                            <InputLabel htmlFor="role-selection">Rolle</InputLabel>
-                            <Select
-                                value={role}
-                                onChange={this.handleChange}
-                                inputProps={{
-                                    name: 'role',
-                                    id: 'role-selection',
-                                }}
+                        <TextField
+                            id="outlined-select-role"
+                            select
+                            label="Rolle"
+                            value={this.state.role}
+                            onChange={this.handleChange('currency')}
+                            helperText="Rolle auswählen"
+                            margin="normal"
                             >
-                            <MenuItem value={"user"}>Anwender</MenuItem>
-                                <MenuItem value={"supervisor"}>Supervisor</MenuItem>
-                                <MenuItem value={"administrator"}>Administrator</MenuItem>
-                            </Select>
-                        </FormControl>
+                            {roles.map(option => (
+                                <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                                </MenuItem>
+                            ))}
+                            </TextField>
                     </form>
                 </Paper>
             );

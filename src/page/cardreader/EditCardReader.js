@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField, Paper } from '@material-ui/core';
 
-export default class CardReaderEdit extends React.Component {
+export default class EditCardReader extends React.Component {
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };

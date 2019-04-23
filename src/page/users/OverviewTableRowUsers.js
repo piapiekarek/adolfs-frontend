@@ -1,20 +1,22 @@
 import React from 'react';
-import { TableCell, TableRow, Button } from '@material-ui/core';
+import { TableCell, TableRow, Button, Tooltip } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom';
 
-export default class UsersOverViewTableRow extends React.Component {
+export default class OverViewTableRowUsers extends React.Component {
     render() {
         const {user_firstname, user_lastname, user_email, user_role, user_id, settingsForSubpages} = this.props;
 
         let LinkToEditUser = null;
-        let URIToEditPage = null;
+        let PageLink = null;
+        let ComponentFile = null;
 
         if(settingsForSubpages){
             Object.keys(settingsForSubpages.pageItems).forEach(entry=>{
                 //get name from settings definition in App.js
                 if("editSpecificUser" === settingsForSubpages.pageItems[entry].identificationName){
-                    URIToEditPage = settingsForSubpages.pageItems[entry].pageLink;
+                    PageLink = settingsForSubpages.pageItems[entry].pageLink;
+                    ComponentFile = settingsForSubpages.pageItems[entry].componentFile;
                 }
             });
             
@@ -40,21 +42,22 @@ export default class UsersOverViewTableRow extends React.Component {
                     {user_id}
                 </TableCell>
                 <TableCell>
-                    {URIToEditPage ?
-                        <Link className={"icon-link"} to={URIToEditPage + "/:" + user_id
-                           /*  {
-                            pathname: URIToEditPage + "/:" + user_id, 
-                            state: { 
-                                user_id: user_id,
-                            },
-                          } */
+                    {PageLink ?
+                        <Link className={"icon-link"} component={ComponentFile} to={
+                            {
+                                pathname: PageLink + "?" + user_id, 
+                                state: { 
+                                    user_id: user_id,
+                                },
+                            } 
                           }>
-
-                            <Button>
-                                <Icon color="primary">
-                                    add_circle
-                                </Icon>
-                            </Button>
+                            <Tooltip title="Benutzerdaten editieren">
+                                <Button>
+                                    <Icon color="primary">
+                                        edit
+                                    </Icon>
+                                </Button>
+                            </Tooltip>
 
                         </Link>
                         :

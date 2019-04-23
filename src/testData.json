@@ -125,10 +125,10 @@
     {
       "name": "test_smartswitch_1",
       "cardreader_id" : [
-        "test_smartswitch_id_1",
-        "test_smartswitch_id_2" 
+        "test_cardreader_id_1",
+        "test_cardreader_id_2" 
       ],
-      "id" : "test_cardreader_1"
+      "id" : "test_smartswitch_id_1"
     },
     {
       "name": "test_smartswitch_2",
@@ -198,6 +198,88 @@
       "id": "test_user_id_4",
       "password": "test_password_4",
       "role": "supervisor"
+    }
+  },
+  "specificMachineData": {
+    "machine?test_machine_id_1": {
+      "name": "test_machine_1",
+      "id": "test_machine_id_1",
+      "smart_switch_id": "test_smartswitch_id_1",
+      "current_user": "test_first_name_1 test_last_name_1",
+      "state": "on",
+      "power_threshold": "10000",
+      "max_on_time": "50",
+      "max_off_time": "500"
+    },
+    "machine?test_machine_id_2": {
+      "name": "test_machine_2",
+      "id": "test_machine_id_2",
+      "smart_switch_id": "test_smartswitch_id_1",
+      "current_user": "test_first_name_2 test_last_name_2",
+      "state": "off",
+      "power_threshold": "10000",
+      "max_on_time": "50",
+      "max_off_time": "500"
+    },
+    "machine?test_machine_id_3": {
+      "name": "test_machine_3",
+      "id": "test_machine_id_3",
+      "smart_switch_id": "test_smartswitch_id_1",
+      "current_user": "test_first_name_1 test_last_name_1",
+      "state": "off",
+      "power_threshold": "10000",
+      "max_on_time": "50",
+      "max_off_time": "500"
+    },
+    "machine?test_machine_id_4": {
+      "name": "test_machine_4",
+      "id": "test_machine_id_4",
+      "smart_switch_id": "test_smartswitch_id_1",
+      "current_user": "test_first_name_2 test_last_name_2",
+      "state": "on",
+      "power_threshold": "10000",
+      "max_on_time": "50",
+      "max_off_time": "500"
+    },
+    "machine?test_machine_id_5": {
+      "name": "test_machine_5",
+      "id": "test_machine_id_5",
+      "smart_switch_id": "test_smartswitch_id_1",
+      "current_user": "test_first_name_1 test_last_name_1",
+      "state": "on",
+      "power_threshold": "10000",
+      "max_on_time": "50",
+      "max_off_time": "500"
+    },
+    "machine?test_machine_id_6": {
+      "name": "test_machine_6",
+      "id": "test_machine_id_6",
+      "smart_switch_id": "test_smartswitch_id_1",
+      "current_user": "test_first_name_2 test_last_name_2",
+      "state": "on",
+      "power_threshold": "10000",
+      "max_on_time": "50",
+      "max_off_time": "500"
+    },
+    "machine?test_machine_id_7": {
+      "name": "test_machine_7",
+      "id": "test_machine_id_7",
+      "smart_switch_id": "test_smartswitch_id_1",
+      "current_user": "test_first_name_3 test_last_name_3",
+      "state": "off",
+      "power_threshold": "10000",
+      "max_on_time": "50",
+      "max_off_time": "500"
+    },
+    "machine?test_machine_id_8": {
+      "name": "test_machine_8",
+      "id": "test_machine_id_8",
+      "smart_switch_id": "test_smartswitch_id_1",
+      "current_user": "test_first_name_2 test_last_name_2",
+      "state": "on",
+      "power_threshold": "10000",
+      "max_on_time": "50",
+      "max_off_time": "500"
     }
   }
 }
